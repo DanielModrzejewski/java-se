@@ -1,7 +1,7 @@
 public class Exercise7 {
     public static void main(String[] args) {
-        int x[] = {1, 2, 3, 4};
-        int t = 3;
+        int x[] = {1, 1, 1, 1};
+        int t = 2;
         int sum;
         int len = x.length;
         int remove = -1;
