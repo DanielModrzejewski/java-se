@@ -120,7 +120,7 @@ public class TicTacToe {
     }
 
     private static boolean IsCorrectField(int x, int y, char[][] board) {
-        if (x < 0 || x > board.length || y < 0 || y > board.length) {
+        if (x < 0 || x > board.length-1 || y < 0 || y > board.length-1) {
             System.out.println("Nie ma takiego pola, sproboj ponownie");
             return false;
         }
