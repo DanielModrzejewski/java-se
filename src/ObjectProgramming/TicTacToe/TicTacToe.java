@@ -3,8 +3,9 @@ package ObjectProgramming.TicTacToe;
 
 public class TicTacToe {
     public static void main(String[] args) {
-        Game game = new Game();
-        game.startGame();
+        new Game().startGame();
+//        Game game = new Game();
+//        game.startGame();
 
     }
 

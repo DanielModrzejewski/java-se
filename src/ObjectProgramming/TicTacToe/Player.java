@@ -4,20 +4,19 @@ import java.util.Scanner;
 
 public class Player {
     private char playerSign;
-    Player(char playerSign){
-        int[] actMove = new int [2];
+    Scanner scanner = new Scanner(System.in);
+
+    Player(char playerSign) {
         this.playerSign = playerSign;
         System.out.println("Player " + playerSign + " dolaczyl do gry");
     }
 
-    public void getMove() {
-        while (true) {
 
-        }
+    private int readNumberFromConsole() {
+        return scanner.nextInt();
     }
-    static int readNumberFromConsole(int numberInOrder) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj liczbe: " + numberInOrder);
-        return  scanner.nextInt();
+
+    public char getPlayerSign() {
+        return playerSign;
     }
 }
