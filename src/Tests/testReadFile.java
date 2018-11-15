@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class testReadFile {
@@ -16,19 +17,13 @@ public class testReadFile {
         //Path filePath = Paths.get("/home/danielmodrzejewski/Downloads/kryptowaluty" , "btc.csv");
 
         String fileNames[] = listFilesForFolder2(folder2);
-        for (int i = 0; i < fileNames.length; i++) {
+        for (int i = 0; i < 3; i++) {
 
             System.out.println(fileNames[i]);
             Path filePath = Paths.get("/home/danielmodrzejewski/Downloads/kryptowaluty", fileNames[i]);
             try {
                 List<String> lines = Files.readAllLines(filePath);
-                //System.out.println(lines.toString());
-//            for (String s : lines) {
-//                System.out.println(s);
-//            }
-
-                //System.out.println(lines.get(0));
-                System.out.println(lines.get(1));
+                System.out.println(lines.get(0));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -36,11 +31,12 @@ public class testReadFile {
         }
 
 
+
     }
 
 
     public static String[] listFilesForFolder2(final File folder) {
-        // List<>
+        ArrayList<String> s2 = new ArrayList<>();
 
         String s = "";
 
@@ -49,9 +45,23 @@ public class testReadFile {
                 //System.out.println(fileEntry.getName());
                 //return fileEntry.getName();
                 s += fileEntry.getName() + ",";
+                s2.add(fileEntry.getName());
             }
         }
 
         return s.split(",");
+    }
+
+    public static ArrayList listFilesForFolder3(final File folder) {
+        ArrayList<String> s2 = new ArrayList<>();
+
+
+        for (final File fileEntry : folder.listFiles()) {
+            if (!fileEntry.isDirectory()) {
+                s2.add(fileEntry.getName());
+            }
+        }
+
+        return s2;
     }
 }
